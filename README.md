@@ -1,2 +1,2 @@
 # netty-demo
-demo for using netty
+demo when learning netty
