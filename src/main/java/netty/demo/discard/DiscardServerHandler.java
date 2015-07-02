@@ -12,7 +12,7 @@ import io.netty.util.ReferenceCountUtil;
  * Created by niuqinghua on 2015/6/12.
  */
 public class DiscardServerHandler extends ChannelHandlerAdapter {
-
+    
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
