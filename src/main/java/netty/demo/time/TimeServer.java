@@ -1,4 +1,4 @@
-package netty.demo.echo;
+package netty.demo.time;
 
 import io.netty.channel.ChannelHandler;
 import netty.demo.AbstractServer;
@@ -6,20 +6,21 @@ import netty.demo.AbstractServer;
 /**
  * Created by niuqinghua on 2015/7/4.
  */
-public class EchoServer extends AbstractServer {
+public class TimeServer extends AbstractServer {
 
-    public EchoServer(int port) {
+    public TimeServer(int port) {
         super(port);
     }
 
     @Override
     protected ChannelHandler createChildChannelHandler() {
-        return new EchoServerChildChannelHandler();
+        return new TimeServerChildHandler();
     }
 
     public static void main(String[] args) throws Exception {
         int port = args.length > 0 ? Integer.valueOf(args[0]) : 8080;
-        EchoServer echoServer = new EchoServer(port);
+        TimeServer echoServer = new TimeServer(port);
         echoServer.run();
     }
+
 }
