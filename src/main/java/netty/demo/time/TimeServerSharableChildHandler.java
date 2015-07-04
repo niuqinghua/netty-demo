@@ -1,15 +1,13 @@
 package netty.demo.time;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerAdapter;
-import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.*;
 
 /**
  * Created by niuqinghua on 2015/7/4.
  */
-public class TimeServerChildHandler extends ChannelHandlerAdapter {
+@ChannelHandler.Sharable
+public class TimeServerSharableChildHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelActive(final ChannelHandlerContext ctx) throws Exception {

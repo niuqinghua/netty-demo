@@ -6,20 +6,20 @@ import netty.demo.AbstractServer;
 /**
  * Created by niuqinghua on 2015/7/4.
  */
-public class TimeServer extends AbstractServer {
+public class TimeServerWithSharableChildHandler extends AbstractServer {
 
-    public TimeServer(int port) {
+    public TimeServerWithSharableChildHandler(int port) {
         super(port);
     }
 
     @Override
     protected ChannelHandler createChildChannelHandler() {
-        return new TimeServerChildHandler();
+        return new TimeServerSharableChildHandler();
     }
 
     public static void main(String[] args) throws Exception {
         int port = args.length > 0 ? Integer.valueOf(args[0]) : 8080;
-        TimeServer echoServer = new TimeServer(port);
+        TimeServerWithSharableChildHandler echoServer = new TimeServerWithSharableChildHandler(port);
         echoServer.run();
     }
 
