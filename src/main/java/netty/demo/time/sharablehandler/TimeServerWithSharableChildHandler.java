@@ -1,4 +1,4 @@
-package netty.demo.time;
+package netty.demo.time.sharablehandler;
 
 import io.netty.channel.ChannelHandler;
 import netty.demo.AbstractServer;

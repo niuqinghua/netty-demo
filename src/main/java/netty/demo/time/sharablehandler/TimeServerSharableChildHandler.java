@@ -1,4 +1,4 @@
-package netty.demo.time;
+package netty.demo.time.sharablehandler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;

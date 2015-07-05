@@ -1,7 +1,8 @@
-package netty.demo.time;
+package netty.demo.time.unsharablehandler;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
+import netty.demo.time.TimeServerChildHandler;
 
 /**
  * Created by niuqinghua on 2015/7/4.
