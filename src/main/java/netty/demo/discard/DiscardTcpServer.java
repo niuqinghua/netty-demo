@@ -3,19 +3,15 @@
  */
 package netty.demo.discard;
 
-import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
-import netty.demo.AbstractServer;
+import netty.demo.AbstractTcpServer;
 
 /**
  * Created by niuqinghua on 2015/6/12.
  */
-public class DiscardServer extends AbstractServer {
+public class DiscardTcpServer extends AbstractTcpServer {
 
-    public DiscardServer(int port) {
+    public DiscardTcpServer(int port) {
         super(port);
     }
 
@@ -26,7 +22,7 @@ public class DiscardServer extends AbstractServer {
 
     public static void main(String[] args) throws Exception{
         int port = args.length > 0 ? Integer.valueOf(args[0]) : 8080;
-        DiscardServer discardServer = new DiscardServer(port);
+        DiscardTcpServer discardServer = new DiscardTcpServer(port);
         discardServer.run();
     }
 

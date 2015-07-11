@@ -11,13 +11,13 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 /**
  * Created by niuqinghua on 2015/7/4.
  */
-abstract public class AbstractClient {
+abstract public class AbstractTcpClient {
 
     private String ip;
 
     private int port;
 
-    public AbstractClient(String ip, int port) {
+    public AbstractTcpClient(String ip, int port) {
         this.ip = ip;
         this.port = port;
     }

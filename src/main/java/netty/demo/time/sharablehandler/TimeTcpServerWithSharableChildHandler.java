@@ -1,14 +1,14 @@
 package netty.demo.time.sharablehandler;
 
 import io.netty.channel.ChannelHandler;
-import netty.demo.AbstractServer;
+import netty.demo.AbstractTcpServer;
 
 /**
  * Created by niuqinghua on 2015/7/4.
  */
-public class TimeServerWithSharableChildHandler extends AbstractServer {
+public class TimeTcpServerWithSharableChildHandler extends AbstractTcpServer {
 
-    public TimeServerWithSharableChildHandler(int port) {
+    public TimeTcpServerWithSharableChildHandler(int port) {
         super(port);
     }
 
@@ -19,7 +19,7 @@ public class TimeServerWithSharableChildHandler extends AbstractServer {
 
     public static void main(String[] args) throws Exception {
         int port = args.length > 0 ? Integer.valueOf(args[0]) : 8080;
-        TimeServerWithSharableChildHandler echoServer = new TimeServerWithSharableChildHandler(port);
+        TimeTcpServerWithSharableChildHandler echoServer = new TimeTcpServerWithSharableChildHandler(port);
         echoServer.run();
     }
 
