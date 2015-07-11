@@ -11,11 +11,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * Created by niuqinghua on 2015/7/4.
  */
-abstract public class AbstractTcpServer {
+abstract public class AbstractNioTcpServer {
 
     private int port;
 
-    public AbstractTcpServer(int port) {
+    public AbstractNioTcpServer(int port) {
         this.port = port;
     }
 
