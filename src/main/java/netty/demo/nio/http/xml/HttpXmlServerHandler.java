@@ -1,9 +1,14 @@
 package netty.demo.nio.http.xml;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.HttpRequest;
+import netty.demo.nio.http.business.Address;
+import netty.demo.nio.http.business.Customer;
 import netty.demo.nio.http.business.Order;
 
 /**
@@ -21,7 +26,27 @@ public class HttpXmlServerHandler extends SimpleChannelInboundHandler<HttpXmlReq
     }
 
     private void doBusiness(Order order) {
+        setName(order);
+        setAddress(order);
+    }
 
+    private void setAddress(Order order) {
+        Address address = order.getBillTo();
+        address.setCity("city");
+        address.setCountry("country");
+        address.setState("state");
+        address.setPostCode("100000");
+        order.setBillTo(address);
+        order.setShipTo(address);
+    }
+
+    private void setName(Order order) {
+        Customer customer = order.getCustomer();
+        customer.setFirstName("firstName");
+        customer.setLastName("lastName");
+        List<String> middleNames = new ArrayList<String>();
+        middleNames.add("middleName");
+        customer.setMiddleName(middleNames);
     }
 
     @Override
