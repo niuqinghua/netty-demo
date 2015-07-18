@@ -1,6 +1,5 @@
 package netty.demo.nio.tcp.http.protocol;
 
-import java.time.temporal.ValueRange;
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +7,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
-import io.netty.handler.codec.marshalling.MarshallingEncoder;
 
 /**
  * Created by niuqinghua on 2015/7/16.
