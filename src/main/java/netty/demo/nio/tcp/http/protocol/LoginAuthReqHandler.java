@@ -10,8 +10,6 @@ public class LoginAuthReqHandler extends ChannelHandlerAdapter {
 
     private static final byte REQ_TYPE = Constants.REQ_TYPE;
 
-    private static final byte RESP_TYPE = Constants.RESP_TYPE;
-
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ctx.writeAndFlush(buildLoginReq());
@@ -44,6 +42,6 @@ public class LoginAuthReqHandler extends ChannelHandlerAdapter {
     }
 
     private boolean isLoginResp(NettyMessage message) {
-        return message.getHeader() != null && message.getHeader().getType() == RESP_TYPE;
+        return NettyMessageTypeUtils.isLoginResp(message);
     }
 }

@@ -13,6 +13,10 @@ public final class NettyMessage {
 
     }
 
+    public NettyMessage(Header header) {
+        this.header = header;
+    }
+
     public NettyMessage(Header header, Object body) {
         this.header = header;
         this.body = body;

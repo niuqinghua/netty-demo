@@ -12,8 +12,6 @@ import io.netty.channel.ChannelHandlerContext;
  */
 public class LoginAuthRespHandler extends ChannelHandlerAdapter {
 
-    private static final byte REQ_TYPE = Constants.REQ_TYPE;
-
     private static final byte RESP_TYPE = Constants.RESP_TYPE;
 
     private Map<String, Boolean> nodeCheck = new HashMap<String, Boolean>();
@@ -54,7 +52,7 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
     }
 
     private boolean isReqMessage(NettyMessage message) {
-        return message.getHeader() != null && message.getHeader().getType() == REQ_TYPE;
+        return NettyMessageTypeUtils.isReqMessage(message);
     }
 
     private NettyMessage buildRespMessage(byte result) {
