@@ -6,20 +6,16 @@ import java.lang.reflect.Method;
 /**
  * Created by niuqinghua on 15/8/31.
  */
-public class ProxyHandler<T> implements InvocationHandler {
+public class ClientProxyHandler<T> implements InvocationHandler {
 
     private Class<T> proxied;
 
-    public ProxyHandler(Class<T> proxied) {
+    public ClientProxyHandler(Class<T> proxied) {
         this.proxied = proxied;
     }
 
     public Object invoke( Object proxy, Method method, Object[] args ) throws Throwable {
-        System.out.println(proxied.getTypeName());
-        System.out.println(method.getName());
-
-        RPCRequest rpcRequest = new RPCRequest(method.getName(), method.getParameterTypes(), args);
-
+        RPCRequest rpcRequest = new RPCRequest(proxied.getTypeName(), method, args);
         return "123";
     }
 

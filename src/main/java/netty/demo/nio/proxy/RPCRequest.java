@@ -1,9 +1,13 @@
 package netty.demo.nio.proxy;
 
+import java.lang.reflect.Method;
+
 /**
  * Created by niuqinghua on 15/8/31.
  */
 public class RPCRequest {
+
+    private String typeName;
 
     private final String methodName;
 
@@ -11,10 +15,15 @@ public class RPCRequest {
 
     private final Object[] arguments;
 
-    public RPCRequest(String methodName, Class<?>[] parameterTypes, Object[] arguments) {
-        this.methodName = methodName;
-        this.parameterTypes = parameterTypes;
+    public RPCRequest(String typeName, Method method, Object[] arguments) {
+        this.typeName = typeName;
+        this.methodName = method.getName();
+        this.parameterTypes = method.getParameterTypes();
         this.arguments = arguments;
+    }
+
+    public String getTypeName() {
+        return typeName;
     }
 
     public String getMethodName() {

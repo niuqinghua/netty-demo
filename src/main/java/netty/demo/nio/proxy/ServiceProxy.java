@@ -7,14 +7,14 @@ import java.lang.reflect.Proxy;
  */
 public class ServiceProxy {
 
-    public static <T> T createService(Class<T> type) {
+    public static <T> T createClientProxy(Class<T> type) {
         return (T) Proxy.newProxyInstance(type.getClassLoader(),
                 new Class[]{type},
-                new ProxyHandler(type));
+                new ClientProxyHandler(type));
     }
 
     public static void main(String[] args) {
-        ServiceInterface serviceInterface = ServiceProxy.createService(ServiceInterface.class);
+        ServiceInterface serviceInterface = ServiceProxy.createClientProxy(ServiceInterface.class);
         System.out.println(serviceInterface.process("test"));
     }
 
