@@ -21,7 +21,7 @@ public class ServerProxyHandler extends ChannelHandlerAdapter {
         RPCRequest rpcRequest = (RPCRequest) msg;
         Class serviceClass = Class.forName(rpcRequest.getTypeName());
         Object service = beanFactory.getBean(serviceClass);
-        Method method = service.getClass().getMethod(rpcRequest.getMethodName(), rpcRequest.getParameterTypes());
+        Method method = serviceClass.getMethod(rpcRequest.getMethodName(), rpcRequest.getParameterTypes());
         Object result = method.invoke(service, rpcRequest.getArguments());
         ctx.writeAndFlush(result);
     }
