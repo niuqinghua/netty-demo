@@ -17,6 +17,9 @@ public class ProxyHandler<T> implements InvocationHandler {
     public Object invoke( Object proxy, Method method, Object[] args ) throws Throwable {
         System.out.println(proxied.getTypeName());
         System.out.println(method.getName());
+
+        RPCRequest rpcRequest = new RPCRequest(method.getName(), method.getParameterTypes(), args);
+
         return "123";
     }
 
